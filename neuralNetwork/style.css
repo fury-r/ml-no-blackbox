@@ -1,0 +1,12 @@
+
+body{
+    margin:0;
+    overflow: hidden;
+    text-align: center;
+    background-color: gainsboro;
+}
+
+
+#myCanvas{
+    background: lightgray;;
+}
