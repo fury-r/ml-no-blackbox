@@ -12,6 +12,10 @@ class Car {
     this.angle = 0;
   }
   update() {
+    this.#move();
+  }
+
+  #move() {
     if (this.controls.forward) {
       this.speed += this.acceleration;
     }
@@ -24,7 +28,7 @@ class Car {
     if (this.speed > this.maxSpeed) {
       this.speed = this.maxSpeed;
     }
-    //revetse capping limit
+    //reverse capping limit
     if (this.speed < -this.maxSpeed) {
       this.speed = -this.maxSpeed / 2;
     }
@@ -40,7 +44,7 @@ class Car {
       this.speed = 0;
     }
     if (this.speed != 0) {
-      //to flip the controls of moving left and right while reversing without this car turns right when you press left(reverse mode)
+      //to flip the controls of moving left and right while reversing without this car turns right when you press left( when reversing)
       const flip = this.speed > 0 ? 1 : -1;
       if (this.controls.left) {
         this.angle += 0.03 * flip;
@@ -63,6 +67,7 @@ class Car {
 
     ctx.rect(-this.w / 2, -this.h / 2, this.w, this.h);
     ctx.fill();
+    ctx.style += "z-index:9;";
 
     ctx.restore();
   }
