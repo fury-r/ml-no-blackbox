@@ -5,11 +5,20 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <canvas id="myCanvas"></canvas>
+    <canvas id="carCanvas"></canvas>
+    <div id="controlButtons">
+      <button onclick="save()">Save</button>
+      <button onclick="discard()">discard</button>
+    </div>
+    <canvas id="networkCanvas"></canvas>
+    <script src="js/visualizer.js"></script>
+
     <script src="js/utils.js"></script>
+    <script src="js/network.js"></script>
+
     <script src="js/road.js"></script>
     <script src="js/control.js"></script>
-    <script src="js/sesnor.js"></script>
+    <script src="js/sensor.js"></script>
 
     <script src="js/car.js"></script>
     <script src="js/main.js"></script>

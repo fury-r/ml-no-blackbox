@@ -2,11 +2,31 @@
 body{
     margin:0;
     overflow: hidden;
-    text-align: center;
     background-color: gainsboro;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
-#myCanvas{
+#carCanvas{
     background: lightgray;;
+}
+#networkCanvas{
+    background: black;;
+}
+button{
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    margin: 5px 5px;
+
+}
+
+button:hover{
+    background-color: aqua;
+}
+#controlButtons{
+    display: flex;
+    flex-direction: column;
 }
