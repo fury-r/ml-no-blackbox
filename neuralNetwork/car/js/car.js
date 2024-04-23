@@ -1,5 +1,5 @@
 class Car {
-  constructor(x, y, w, h, type, maxSpeed = 3, useBrain = false) {
+  constructor(x, y, w, h, type, maxSpeed = 3) {
     if (type !== "DUMMY") {
       this.sensor = new Sensor(this);
       this.brain = new NeuralNetwork([this.sensor.rayCount, 6, 4]);

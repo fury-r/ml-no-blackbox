@@ -27,7 +27,7 @@ class Sensor {
         touches.push(touch);
       }
     });
-    trafficCars.forEach((car) => {
+    trafficCars.forEach(({ polygon }) => {
       for (let i = 1; i < roadBorders.length; i++) {
         const touch = getIntersection(
           ray[0],
@@ -39,12 +39,12 @@ class Sensor {
           touches.push(touch);
         }
       }
-      car.polygon.forEach((_, j) => {
+      polygon.forEach((_, j) => {
         const intersection = getIntersection(
           ray[0],
           ray[1],
-          car.polygon[j],
-          car.polygon[(j + 1) % car.polygon.length]
+          polygon[j],
+          polygon[(j + 1) % polygon.length]
         );
         if (intersection) {
           touches.push(intersection);

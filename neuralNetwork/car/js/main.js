@@ -12,9 +12,13 @@ const trafficCars = [
   new Car(road.getLaneCenter(1), -100, 30, 50, "DUMMY", 2),
   new Car(road.getLaneCenter(0), -300, 30, 50, "DUMMY", 2),
   new Car(road.getLaneCenter(2), -300, 30, 50, "DUMMY", 2),
+  new Car(road.getLaneCenter(0), -500, 30, 50, "DUMMY", 2),
+  new Car(road.getLaneCenter(1), -500, 30, 50, "DUMMY", 2),
+  new Car(road.getLaneCenter(1), -700, 30, 50, "DUMMY", 2),
+  new Car(road.getLaneCenter(2), -700, 30, 50, "DUMMY", 2),
 ];
 // const car = new Car(road.getLaneCenter(2), 100, 30, 50, "AI");
-const cars = generateCars(100);
+const cars = generateCars(1);
 
 function generateCars(n) {
   return new Array(n)
@@ -24,11 +28,11 @@ function generateCars(n) {
 let bestCar = cars[0];
 if (localStorage.getItem("bestBrain")) {
   console.log("FROM SAVE");
-  bestCar.brain = JSON.parse(localStorage.getItem("bestBrain"));
-  for (let i = 1; i < cars.length; i++) {
-    cars[i].brain = bestCar.brain;
-    if (i > 0) {
-      NeuralNetwork.mutate(cars[i].brain, 0.2);
+  const brain = localStorage.getItem("bestBrain");
+  for (let i = 0; i < cars.length; i++) {
+    cars[i].brain = JSON.parse(brain);
+    if (i != 0) {
+      NeuralNetwork.mutate(cars[i].brain, 0.1);
     }
   }
   console.log(bestCar);
